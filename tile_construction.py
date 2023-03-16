@@ -1,20 +1,19 @@
 class Tile:
-    def __init__(self, neighboring_land_tiles, neighboring_water_tiles,
-                 roll_number, has_thief, resource,
-                 side1, side2, side3, side4, side5, side6,
+    def __init__(self, id, roll_number, has_thief, resource,
+                 road1, road2, road3, road4, road5, road6,
                  vertex1, vertex2, vertex3, vertex4, vertex5, vertex6):
-        self.neighboring_land_tiles = neighboring_land_tiles
-        self.neighboring_water_tiles = neighboring_water_tiles
+
+        self.id = id
         self.roll_number = roll_number
         self.has_thief = has_thief
         self.resource = resource
 
-        self.side1 = side1
-        self.side2 = side2
-        self.side3 = side3
-        self.side4 = side4
-        self.side5 = side5
-        self.side6 = side6
+        self.road1 = road1
+        self.road2 = road2
+        self.road3 = road3
+        self.road4 = road4
+        self.road5 = road5
+        self.road6 = road6
 
         self.vertex1 = vertex1
         self.vertex2 = vertex2
@@ -22,3 +21,10 @@ class Tile:
         self.vertex4 = vertex4
         self.vertex5 = vertex5
         self.vertex6 = vertex6
+
+available_tile_roll_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12]
+
+import numpy as np
+
+def set_tile_roll_number():
+    return available_tile_roll_numbers.pop(np.random.randint(1, len(available_tile_roll_numbers)+1)))
